@@ -1,0 +1,16 @@
+{% include 'header.html' ignore missing%}
+{%macro list_users(list_of_user) -%}
+<ul>
+{%for u in list_of_user -%}
+    <li>{{u.name}}{{caller(u)}}
+{%-endfor%}
+</ul>
+{%- endmacro%}
+
+{%-call(user) list_users(users)-%}
+ <ul>
+ <li>age:{{user.age}}
+ <Li>weight: {{user.weight}}
+ </ul>
+{%-endcall-%}
+{% include 'footer.html' ignore missing%}

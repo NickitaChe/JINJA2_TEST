@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{%macro list_users(list_of_user) -%}
+<ul>
+{%for u in list_of_user -%}
+    <li>{{u.name}}{{caller(u)}}
+{%-endfor%}
+</ul>
+{%- endmacro%}
+
+{%-call(user) list_users(users)-%}
+ <ul>
+ <li>age:{{user.age}}
+ <Li>weight: {{user.weight}}
+ </ul>
+{%-endcall-%}
+
+</body>
+</html>
